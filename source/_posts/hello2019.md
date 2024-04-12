@@ -49,6 +49,3 @@ GoodBye 2018，Hello 2019，新的一年我也希望能继续按照自己喜欢�
 我们只对未知的事物产生畏惧，知道越多，畏惧越少。
 by Lila 《我的天才女友》
 {% endcenterquote %}
-
-
-相关阅读：[我居然错过了考研正式报名](https//philo-li.com/I-Missed-A-Important-Test)
