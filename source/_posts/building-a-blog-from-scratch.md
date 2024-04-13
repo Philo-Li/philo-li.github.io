@@ -8,6 +8,8 @@ categories: 日常折腾
 
 Hexo 作为一个快速、简洁且高效的博客框架，简直是小白们的福音，而 GitHub 又免去了我们额外租用并部署服务器的麻烦。因此本文将利用 Hexo 及 GitHub 搭建博客。
 
+<!--more-->
+
 曾经我在 2018 年写过一篇 （[从零开始搭建博客简明教程](https://lulalap.com/2018/01/25/building-a-blog-from-scratch/)）,因为插件的更新，有一些细节需要改动，因此重新推出 2024 版的简明教程。
 
 ### 准备工作
@@ -15,11 +17,9 @@ Hexo 作为一个快速、简洁且高效的博客框架，简直是小白们的
 * 下载安装 node.js （[官网下载安装](https://nodejs.org/en/)）
 * 下载安装 git （[官网下载安装](https://git-scm.com/downloads)）
 
-<!--more-->
+### 本地搭建 hexo 静态博客
 
-### 本地搭建hexo静态博客
-
-* 安装hexo框架: 打开cmd 运行
+* 安装 hexo 框架: 打开 cmd 运行
  ```bash
  $ npm install -g hexo-cli
  ```
@@ -88,7 +88,8 @@ hexo server
 
 * 打开 /themes/next 目录下的主题配置文件 _config.yml ，找到字段 avatar 并修改为:
 ```bash
-avatar: /uploads/avatar.jpg
+avatar: 
+    url: /uploads/avatar.jpg
 ```
 
 ### 完善博客页面
@@ -97,11 +98,11 @@ avatar: /uploads/avatar.jpg
 * 在主题配置文件 _configy.yml 设置中将字段 menu 中需要添加的菜单前面的注释去掉即可。如需要添加其他菜单可按需添加（注意字段的缩进）：
 ```bash
 menu:
-  home: /
-  categories: /categories
-  archives: /archives
-  tags: /tags
-  about: /about
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
 ```
 
 #### 创建分类页面
@@ -113,10 +114,10 @@ menu:
 
 * 编辑刚新建的页面 /source/categories/index.md ，将页面的类型设置为 categories ，主题将自动为这个页面显示所有分类（注意保留冒号后的空格）。
  ```bash
-  title: 分类
-  date: 2018-01-23 13:37:11
-  type: "categories"
-  comments: false
+	title: Categories
+	date: 2024-04-10 23:40:31
+	type: "categories"
+	comments: false
   ---
  ```
 
@@ -129,10 +130,10 @@ menu:
 
 * 编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。
  ```bash
- title: 所有标签
- date: 2018-01-22 14:09:12
- type: "tags"
- comments: false
+	title: Tags
+	date: 2024-04-10 23:41:25
+	type: "tags"
+	comments: false
  ---
  ```
 
@@ -140,41 +141,36 @@ menu:
 
  * 新建一个 about 页面：
  ```bash
- hexo new page "about"
+ $ hexo new page "about"
  ```
 
  * 编辑刚新建的页面，可在正文处用Markdown格式写下信息。
  ```bash
- title: 关于
- date: 2018-01-22 14:09:12
- comments: false
+	title: About
+	date: 2024-04-10 23:41:56
+	comments: false
  ---
  ```
 
 ### 设置侧边栏社交链接
 
-* 编辑站点的 _config.yml，新增字段 social，然后添加社交站点名称与地址即可。键值格式为 显示名称：链接地址 ，例如：
+* 编辑站点的 _config.yml，找到字段 social，然后添加社交站点名称与地址即可。键值格式为 显示名称：链接地址 ，例如：
  ```bash
-     # Social links
-     social:
-       GitHub: https://github.com/your-user-name
-       #Twitter: https://twitter.com/your-user-name
-       微博: http://weibo.com/your-user-name
-       #douban: http://douban.com/people/your-user-name
-       #知乎: http://www.zhihu.com/people/your-user-name
-       # 等等
+	# Social links
+	social:
+		GitHub: https://github.com/your-user-name || fab fa-github
+		E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+		#Weibo: https://weibo.com/yourname || fab fa-weibo
+		#Google: https://plus.google.com/yourname || fab fa-google
+		Twitter: https://x.com/your-user-name || fab fa-twitter
  ```
 
 * 编辑主题的 _config.yml, 在social_icons字段下添加社交站点名称（注意大小写）与(图标)[http://fontawesome.io/icons/]。 enable 选项用于控制是否显示图标，你可以设置成 false 来去掉图标。例如：
  ```bash
  social_icons:
    enable: true
-   # Icon Mappings.
-   # KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome
    GitHub: github
    Twitter: twitter
-   Weibo: weibo
-   Linkedin: linkedin
  ```
 
 ### 将博客与GitHub关联
@@ -188,7 +184,7 @@ menu:
  deploy:
    type: git
    repository: https://github.com/your-name/your-name.github.io.git
-   branch: master
+   branch: main
  ```
 
  * 运行：
@@ -209,24 +205,28 @@ hexo d
 
 #### 域名购买
 
-* 购买一个域名（待补充）
+* 购买一个域名，推荐在 [namesilo.com](namesilo.com) 上购买，老牌的域名提供商，价格优惠服务靠谱。如果你使用我的推荐码`PhiloArt.io`，可获得优惠1美元，有效期至 2025-12-31。
 
 ### 域名解析
 
-* 域名提供商设置
+* 域名提供商 DNS 设置
 
-* 添加2条A记录：
+* 添加4条A记录，用于指向 GitHub Pages：
 
- > @—>192.30.252.154
- > @—>192.30.252.153
+ > 185.199.108.153
+ > 185.199.109.153
+ > 185.199.110.153
+ > 185.199.111.153
 
-* 添加一条CNAME记录：
+* 添加一条 CNAME 记录，name 为 www，content 为 philo-li.github.io（指向你的 Github Pages 地址）：
 
- > CNAME—>lulalap.github.io
+ > CNAME—>philo-li.github.io
+
+* 更详细的设置请参见 [GitHub Pages Docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)
 
 * 博客目录添加 CNAME 文件
 
- 配置完域名解析后，进入博客目录，在source目录下新建一个命名为 CNAME 的文件(注意要大写，没有后缀)，用记事本打开编辑，写入购买好的域名，如：www.lulalap.com
+ 配置完域名解析后，进入博客目录，在source目录下新建一个命名为 CNAME 的文件(注意要大写，没有后缀)，用记事本打开编辑，写入购买好的域名，如：www.philoli.com
 
 * 运行：
 ```bash
@@ -261,7 +261,7 @@ hexo d
 
 ### 个性化设置（进阶）
 
-### 添加 RSS
+#### 添加 RSS
 
  * 在根目录下安装插件
  ```bash
@@ -280,7 +280,7 @@ hexo d
  rss: /atom.xml
  ```
 
-### 首页文章截断
+#### 首页文章截断
  * 每次写文章正文时，只需要在文章 .md 中需要截断的地方增加：
 
  ```bash
@@ -289,6 +289,17 @@ hexo d
 
  * 将主题目录下配置文件里的 scroll_to_more 这个选项设置为 false 。
 
+#### 文章内的引用文字居中
+* 优化了 markdown 默认的引用的样式
+
+```
+{% centerquote %}
+引用正文
+{% endcenterquote %}
+```
+{% centerquote %}
+引用正文
+{% endcenterquote %}
 
 
  #### 设定站点建立时间
@@ -298,7 +309,30 @@ hexo d
  ```bash
  since: 2013
  ```
+#### 几个常用插件
 
+- Hexo Filter MathJax：渲染数学公式
+  - 安装 `npm install hexo-filter-mathjax`
+  - 详细配置：[hexo-filter-mathjax](https://github.com/next-theme/hexo-filter-mathjax)
+- Hexo Word Counter：文章字数统计
+  - 安装 `npm install hexo-word-counter`
+  - 详细配置：[hexo-word-counter](https://github.com/next-theme/hexo-word-counter)
+- Hexo Optimize：优化博客加载速度
+  - 安装 `npm install hexo-optimize`
+  - 详细配置：[hexo-optimize](https://github.com/next-theme/hexo-optimize)
+- 更多插件：[https://theme-next.js.org/plugins/](https://theme-next.js.org/plugins/)
+
+### 几个常用命令汇总
+ ```bash
+hexo g
+#或 hexo generate，根据源文件生成静态网页
+hexo d
+#或 hexo deploy，发布推送到 GitHub Pages
+hexo s
+#或 hexo server，本地部署测试
+hexo clean
+# 清空静态网页 cache，然后 hexo d 重新生成
+ ```
 
 
 ### 参考文章
