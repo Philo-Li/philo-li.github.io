@@ -1,8 +1,9 @@
 ---
 title: 数据科学中 Python 的常用语法(基础)
 date: 2018-11-07 20:53:13
-tags: 闲聊
-categories: 日常闲聊
+tags: Python
+categories: 数据科学
+mathjax: true
 --- 
 
 这两天在看这本 [Data Science from Scrach](https://book.douban.com/subject/26364377/) ([PDF地址](http://www.zhanjunlang.com/resources/tutorial/Data%20Science%20from%20Scratch%20First%20Principles%20with%20Python.pdf) )，是本不错的通俗易懂的数据科学入门书籍。其中一个章节介绍了一下 Python 的基础语法和数据科学常用的进阶语法，觉得介绍得不错，很简洁明了，所以将其翻译一下放在这里以作备忘。  
@@ -19,11 +20,11 @@ categories: 日常闲聊
 
 ```python
 for i in [1, 2, 3, 4, 5]:  
-    print i         # "for i"循环的第一行  
+    print i          # "for i"循环的第一行  
     for j in [1, 2, 3, 4, 5]:  
-        print j       # "for j"循环的第一行  
-        print i + j   # "for j"循环的最后一行  
-    print i         # "for i"循环的最后一行  
+        print j      # "for j"循环的第一行  
+        print i + j  # "for j"循环的最后一行  
+    print i          # "for i"循环的最后一行  
 print "done looping"  
 ```
 
@@ -47,7 +48,7 @@ easier_to_read_list_of_lists = [ [1, 2, 3],
 可以用一个反斜杠来表示连接中断的两行（这种做法很少用）：  
 
 ```python
-two_plus_three = 2 +   
+two_plus_three = 2 + \
                  3  
 ```
 
@@ -87,16 +88,17 @@ Python 2.7 默认使用整除，所以 $ 5 / 2 = 2 $.但很多时候我们并不
 
 ```python
 from __future__ import division  
+```
 
 导入后，就有 $5 / 2 = 2.5$.  
 整除：$5 // 2 = 2$.
-```
+
 ### [](#函数-Functions "函数 Functions")函数 Functions
 
 #### [](#函数定义 "函数定义")函数定义
 
 
-函数是能够接收 0 个或多个输入，并返回一定输出的一个规则。在 Python 中，我们用 **`def 函数名(参数)`** 定义一个函数:
+函数是能够接收 0 个或多个输入，并返回一定输出的一个规则。在 Python 中，我们用 `def 函数名(参数)` 定义一个函数:
 
 ```python
 def double(x):  
@@ -120,13 +122,13 @@ x = apply_to_one(my_double) # x 等于 2
 #### [](#匿名函数 "匿名函数")匿名函数
 
 
-还可以通过 _lambda_ 来创建匿名函数：
+还可以通过 `lambda` 来创建匿名函数：
 
 ```python
 y = apply_to_one(lambda x: x + 4)     # 等于 5  
 ```
 
-可以将 _lambda_ 赋值给其他变量，但大多数人会建议你还是尽量使用 _def_ ：
+可以将 `lambda` 赋值给其他变量，但大多数人会建议你还是尽量使用 _def_ ：
 
 ```python
 another_double = lambda x: 2 * x      # 不建议  
@@ -135,8 +137,8 @@ def another_double(x): return 2 * x   # 建议做法
 
 补充：
 
-* _lambda_ 只是一个表达式，函数体比 _def_ 简单很多。
-* _lambda_ 的主体是一个表达式，而不是一个代码块。仅仅能在 _lambda_ 表达式中封装有限的逻辑进去。
+* `lambda` 只是一个表达式，函数体比 `def` 简单很多。
+* `lambda` 的主体是一个表达式，而不是一个代码块。仅仅能在 `lambda` 表达式中封装有限的逻辑进去。
 
 #### [](#函数参数传递 "函数参数传递")函数参数传递
 
@@ -174,7 +176,7 @@ tab_string = "\t"      # 表示制表符 tab
 len(tab_string)        # 等于 1  
 ```
 
-当你想要使用反斜杠本身 (用于 Windows 目录或者正则表达式), 可以通过使用原始字符串 r” “ 定义:
+当你想要使用反斜杠本身 (用于 Windows 目录或者正则表达式), 可以通过使用原始字符串 `r""` 定义:
 
 ```python
 not_tab_string = r"\t" # 表示字符 '\' 和 't'  
@@ -191,7 +193,7 @@ multi_line_string = """这是第一行
 
 ### [](#异常处理-Exception "异常处理 Exception")异常处理 Exception
 
-当程序出错，Python 会发生一个 **_异常(exception)_**，我们不对其进行处理的话，程序将会终止执行。捕获异常可以用 try 和 except 语句：
+当程序出错，Python 会发生一个 `异常(exception)`，我们不对其进行处理的话，程序将会终止执行。捕获异常可以用 `try` 和 `except` 语句：
 
 ```python
 try:  
@@ -243,7 +245,7 @@ without_first_and_last = x[1:-1]     # [1, 2, ..., 8]
 copy_of_x = x[:]                     # [-1, 1, 2, ..., 9]  
 ```
 
-可以用 _in_ 来查看某元素是否在列表中:
+可以用 `in` 来查看某元素是否在列表中:
 
 ```python
 1 in [1, 2, 3]        # True  
@@ -345,7 +347,7 @@ grades = { "Joel" : 80, "Tim" : 95 }  # 字典存储
 joels_grade = grades["Joel"]          # 等于 80  
 ```
 
-如果要查找的关键字不在字典中，将返回一个 _键错误(KeyError)_ :
+如果要查找的关键字不在字典中，将返回一个 `键错误(KeyError)` :
 
 ```python
 try:  
@@ -354,7 +356,7 @@ except KeyError:
     print "no grade for Kate!"  
 ```
 
-可以通过 _in_ 来查看关键字是否在字典中:
+可以通过 `in` 来查看关键字是否在字典中:
 
 ```python
 joel_has_grade = "Joel" in grades     # True  
@@ -427,7 +429,7 @@ for word in document:
         word_counts[word] = 1  
 ```
 
-第三个方法是使用 _get_ ，这个方法对于缺失键的处理表现优异:
+第三个方法是使用 `get` ，这个方法对于缺失键的处理表现优异:
 
 ```python
 word_counts = {}  
@@ -436,7 +438,7 @@ for word in document:
     word_counts[word] = previous_count + 1  
 ```
 
-内置字典就跟普通字典一样，唯一的区别就是，当你试图在字典中查找一个不存在的键时，内置字典将利用你提供的关键字自动创建一个键值对。为了使用内置字典，你需要导入 _collections_ 函数库:
+内置字典就跟普通字典一样，唯一的区别就是，当你试图在字典中查找一个不存在的键时，内置字典将利用你提供的关键字自动创建一个键值对。为了使用内置字典，你需要导入 `collections` 函数库:
 
 ```python
 from collections import defaultdict  
@@ -473,7 +475,7 @@ c = Counter([0, 1, 2, 0]) # c (差不多)为 { 0 : 2, 1 : 1, 2 : 1 }
 word_counts = Counter(document)  
 ```
 
-计数器还有一个很常用的方法 _most_common_，可以直接得到最高频的几个词和对应的频率:
+计数器还有一个很常用的方法 `most_common`，可以直接得到最高频的几个词和对应的频率:
 
 ```python
 # 输出前 10 个最高频的词以及他们的计数值  
@@ -498,7 +500,7 @@ z = 3 in s        # 等于 False
 
 使用集合的两大理由：
 
-第一，集合中的 _in_ 操作非常高效。当一个数据集中的元素数量非常庞大的时候，以集合的形式来查找元素显然比列表更加合适:
+第一，集合中的 `in` 操作非常高效。当一个数据集中的元素数量非常庞大的时候，以集合的形式来查找元素显然比列表更加合适:
 
 ```python
 stopwords_list = ["a","an","at"] + hundreds_of_other_words + ["yet", "you"]  
@@ -543,7 +545,7 @@ parity = "even" if x % 2 == 0 else "odd"
 #### [](#while-循环 "while 循环")_while_ 循环
 
 
-Python 中的 _while_ 循环:
+Python 中的 `while` 循环:
 
 ```python
 x = 0  
@@ -554,14 +556,14 @@ while x < 10:
 
 #### [](#for-循环 "for 循环")_for_ 循环
 
-更常用的是使用 _for-in_ 循环:
+更常用的是使用 `for-in` 循环:
 
 ```python
 for x in range(10):  
     print x, "is less than 10"  
 ```
 
-更复杂的逻辑表达式可以使用 _continue_ 和 _break_ 语句:
+更复杂的逻辑表达式可以使用 `continue` 和 `break` 语句:
 
 ```python
 for x in range(10):  
@@ -576,14 +578,14 @@ for x in range(10):
 
 ### [](#真值-Truthiness "真值 Truthiness")真值 Truthiness
 
-Python 中的布尔变量 Booleans 用法和其他语言差不多，唯一的区别是首字母一定要大写:
+Python 中的布尔变量 `Booleans` 用法和其他语言差不多，唯一的区别是首字母一定要大写:
 
 ```python
 one_is_less_than_two = 1 < 2      # 为 True  
 true_equals_false = True == False # 为 False  
 ```
 
-Python 使用 _None_ 来表示一个值不存在，类似其他语言中的 _null_ :
+Python 使用 `None` 来表示一个值不存在，类似其他语言中的 `null` :
 
 ```python
 x = None  
@@ -591,7 +593,7 @@ print x == None        # 输出 True, 不够优美
 print x is None        # 输出 True, 更优美  
 ```
 
-Python 允许你用其他值代替布尔值，以下皆等价于“False”:
+Python 允许你用其他值代替布尔值，以下皆等价于 `False`:
 
 *   False
 *   None
@@ -602,7 +604,7 @@ Python 允许你用其他值代替布尔值，以下皆等价于“False”:
 *   0
 *   0.0
 
-类似的也有很多“True”的等价值，这让你非常方便地判断空列表、空字符串以及空字典等等。
+类似的也有很多 `True` 的等价值，这让你非常方便地判断空列表、空字符串以及空字典等等。
 
 当然，如果你不能预见结果的话，可能会在使用过程中出错:
 
@@ -628,7 +630,7 @@ first_char = s and s[0]
 safe_x = x or 0  
 ```
 
-Python 中还有一个 _all_ 函数，在每个元素都为“True”时函数返回“True”。_any_ 函数，只要有一个元素为“True”就返回“True”。比如对于一个每一个元素都为“真”的列表，_all_ 函数将返回“True”，否则将返回“False”:
+Python 中还有一个 `all` 函数，在每个元素都为 `True` 时函数返回 `True`。`any` 函数，只要有一个元素为 `True` 就返回 `True`。比如对于一个每一个元素都为“真”的列表，`all` 函数将返回`True`，否则将返回`False`:
 
 ```python
 all([True, 1, { 3 }])       # True  
@@ -639,5 +641,5 @@ any([])                     # False, 不存在一个等价于“True”的元素
 ```
 
 **进阶阅读:**  
-[数据科学中常用的 Python 语法(进阶)](https://lulalap.com/2018/11/09/python-tutorails-advanced-level/)
+[数据科学中常用的 Python 语法(进阶)](https://philoli.com/python-tutorails-advanced-level/)
 
