@@ -1,14 +1,14 @@
 ---
-title: 从零开始搭建博客简明教程（2024版）
+title: 从零开始搭建 Hexo 博客简明教程（2024版）
 date: 2024-04-11 00:25:20
 tags: 博客搭建
 categories: 日常折腾
 ---
 你是不是早就厌倦了那些博客网站毫无美感的界面，是不是受够了无休无止的网站推送，是不是早就想建立一个属于自己的博客，却止步于复杂的教程以及一系列令人头疼的代码？那么恭喜你，这篇文章就是想以最浅显易懂的方式手把手教你搭建属于自己的博客，你只需要一点耐心，一步步跟着做。
 
-Hexo 作为一个快速、简洁且高效的博客框架，简直是小白们的福音，而 GitHub 又免去了我们额外租用并部署服务器的麻烦。因此本文将利用 Hexo 及 GitHub 搭建博客。
-
 <!--more-->
+
+Hexo 作为一个快速、简洁且高效的博客框架，简直是小白们的福音，而 GitHub 又免去了我们额外租用并部署服务器的麻烦。因此本文将利用 Hexo 及 GitHub 搭建博客。
 
 曾经我在 2018 年写过一篇 [从零开始搭建博客简明教程](https://lulalap.com/2018/01/25/building-a-blog-from-scratch/),因为插件的更新，有一些细节需要改动，因此重新推出 2024 版的简明教程。
 
@@ -20,24 +20,29 @@ Hexo 作为一个快速、简洁且高效的博客框架，简直是小白们的
 ### 本地搭建 hexo 静态博客
 
 * 安装 hexo 框架: 打开 cmd 运行
+  
  ```bash
  $ npm install -g hexo-cli
  ```
 
 * 新建一个文件夹，如 MyBlog ，进入该文件夹内，右击运行 git ，输入：
+
  ```bash
  $ hexo init
  ```
 
 * 生成完 hexo 模板，安装 npm ，运行：
+
  ```bash
 $ npm install
  ```
 
 没错，博客的主体部分到此已经完成了，来看看效果吧。运行：
+
 ```bash
 $ hexo server
 ```
+
 这时候打开浏览器，输入 localhost:4000 就可以看到博客目前的样子了。小小激动一下，然后按 Ctrl + C 就可以继续下面的操作了。
 
 ### 个性化设置（初步）
@@ -45,25 +50,29 @@ $ hexo server
 #### 更换主题
 
 * 下载新的主题（以[NexT 主题]( http://theme-next.iissnan.com/ )为例），在根目录下运行：
- ```bash
+ 
+```bash
 $ git clone https://github.com/theme-next/hexo-theme-next themes/next
- ```
+```
 
 * 打开根目录下的 `_config.yml`，修改字段 `theme` 为:
+
  ```bash
 theme: next
  ```
 
-* 选择外观：打开 `/themes/next` 目录下的主题配置文件 `_config.yml` ， 找到 `scheme` 字段（可用 Ctrl + F 快捷查找）。NexT提供了三种不同的外观，可以挑选一个自己喜欢的，然后去掉其中一个的 # 号(后续主要修改的也就是这两个文件： _站点配置文件_ 和 _主题配置文件_ 。)。
- ```bash
+* 选择外观：打开 `/themes/next/_config.yml` ， 找到 `scheme` 字段（可用 Ctrl + F 快捷查找）。NexT提供了三种不同的外观，可以挑选一个自己喜欢的，然后去掉其中一个的 # 号(后续主要修改的也就是这两个文件： _站点配置文件_ 和 _主题配置文件_ 。)。
+
+```bash
 # Schemes
 #scheme: Muse
 scheme: Mist
 #scheme: Pisces
 #scheme: Gemini
- ```
+```
 
 * 查看效果，可运行如下命令(以后每次想查看效果都可重复此步骤)：
+
 ```bash
 hexo g #或者 hexo generate
 hexo server
@@ -72,6 +81,7 @@ hexo server
 #### 站点配置
 
 * 使用编辑器打开根目录下的站点配置文件 `_config.yml` （ Windows下不要使用记事本编辑，中文标题会出现乱码），修改字段 `Site` ， 注意冒号后面要有空格：
+
  ```bash
  # Site
  title: 未知的世界                //博客名称
@@ -86,7 +96,8 @@ hexo server
 
 * 在 `/source` 中新建文件夹并命名为 `uploads` , 将头像图片（如： avatar.jpg ）放到该文件夹内
 
-* 打开 `/themes/next` 目录下的主题配置文件 `_config.yml` ，找到字段 `avatar` 并修改为:
+* 打开 `/themes/next/_config.yml` ，找到字段 `avatar` 并修改为:
+
 ```bash
 avatar: 
     url: /uploads/avatar.jpg
@@ -95,7 +106,8 @@ avatar:
 ### 完善博客页面
 
 #### 添加菜单
-* 在主题配置文件 `_config.yml` 设置中将字段 `menu` 中需要添加的菜单前面的注释去掉即可。如需要添加其他菜单可按需添加（注意字段的缩进）：
+* 打开 `/themes/next/_config.yml` ，将字段 `menu` 中需要添加的菜单前面的注释去掉即可。如需要添加其他菜单可按需添加（注意字段的缩进）：
+
 ```bash
 menu:
   home: / || fa fa-home
@@ -108,11 +120,13 @@ menu:
 #### 创建分类页面
 
 * 新建一个页面，命名为 `categories` ，命令如下：
+
  ```bash
  $ hexo new page categories
  ```
 
 * 编辑刚新建的页面 `/source/categories/index.md` ，将页面的类型设置为 `categories` ，主题将自动为这个页面显示所有分类（注意保留冒号后的空格）。
+
  ```bash
 	title: Categories
 	date: 2024-04-10 23:40:31
@@ -124,12 +138,15 @@ menu:
 #### 创建标签云界面
 
 * 新建一个页面，命名为 tags ，命令如下:
+
  ```bash
  $ hexo new page "tags"
  ```
 
 * 编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。
+
  ```bash
+ ---
 	title: Tags
 	date: 2024-04-10 23:41:25
 	type: "tags"
@@ -140,11 +157,13 @@ menu:
 #### 创建"关于我"页面
 
  * 新建一个 about 页面：
+
  ```bash
  $ hexo new page "about"
  ```
 
  * 编辑刚新建的页面，可在正文处用 Markdown 格式写下信息。
+ 
  ```bash
 	title: About
 	date: 2024-04-10 23:41:56
@@ -155,6 +174,7 @@ menu:
 ### 设置侧边栏社交链接
 
 * 编辑站点的 `_config.yml`，找到字段 `social` ，然后添加社交站点名称与地址即可。键值格式为 `显示名称：链接地址` ，例如：
+
  ```bash
 # Social links
 social:
@@ -165,7 +185,8 @@ social:
   Twitter: https://x.com/your-user-name || fab fa-twitter
  ```
 
-* 编辑主题的 `_config.yml`, 在 `social_icons` 字段下添加社交站点名称（注意大小写）与(图标)[http://fontawesome.io/icons/]。 enable 选项用于控制是否显示图标，你可以设置成 `false` 来去掉图标。例如：
+* 打开 `/themes/next/_config.yml`, 在 `social_icons` 字段下添加社交站点名称（注意大小写）与(图标)[http://fontawesome.io/icons/]。 enable 选项用于控制是否显示图标，你可以设置成 `false` 来去掉图标。例如：
+
  ```bash
  social_icons:
    enable: true
@@ -180,6 +201,7 @@ social:
  * 在 Github 上创建名字为 `XXX.github.io` 的项目，XXX为自己的 GitHub 用户名。
 
  * 打开本地的 `MyBlog` 文件夹项目内的 `_config.yml` 配置文件，将其中的 `type` 设置为 `git` :
+  
  ```bash
  deploy:
    type: git
@@ -188,10 +210,12 @@ social:
  ```
 
  * 运行：
+  
  ```bash
  npm install hexo-deployer-git --save
  ```
  * 本地生成静态文件，并将静态文件推送至GitHub，运行：
+
 ```bash
 hexo g
 hexo d
@@ -229,6 +253,7 @@ hexo d
  配置完域名解析后，进入博客目录，在 `source` 目录下新建一个命名为 `CNAME` 的文件(注意要大写，没有后缀)，用记事本打开编辑，写入购买好的域名，如：`www.philoli.com`
 
 * 运行：
+
 ```bash
 hexo g
 hexo d
@@ -241,6 +266,7 @@ hexo d
 * 在博客根目录下执行：`hexo new “我的第一篇文章”`，会在 `source/_posts` 文件夹内生成一个 `.md` 文件。
 
 * 编辑该文件，修改起始字段为：
+
  ```bash
  title 文章的标题
  date 创建日期 （文件的创建日期 ）
@@ -254,6 +280,7 @@ hexo d
 * 编写正文内容(遵循 Markdown 规则)
 
 * 本地生成静态文件，并将静态文件推送至 GitHub，运行：
+
 ```bash
 hexo g
 hexo d
@@ -261,38 +288,43 @@ hexo d
 
 ### 个性化设置（进阶）
 
+下面提供一些进阶的个性化博客样式设置，新手可先跳过。
+
 #### 添加 RSS
 
  * 在根目录下安装插件
+
  ```bash
  $ npm install hexo-generator-feed --save
  ```
 
  * 在根目录的 `_config.yml` 里面的末尾添加：(**_请注意在冒号后面要加一个空格，不然会发生错误！_**)
+
  ```bash
  # Extensions
  ## Plugins: http://hexo.io/plugins/
  plugins: hexo-generate-feed
  ```
 
- * 打开 `next` 主题文件夹里面的 `_config.yml` ,修改 `rss` (注意在冒号后面要加一个空格)
- ```bash
+ * 打开 `/themes/next/_config.yml` ,修改 `rss` (注意在冒号后面要加一个空格)
+
+ ```yml
  rss: /atom.xml || fa fa-rss
  ```
 
 #### 首页文章截断
  * 每次写文章正文时，只需要在文章 .md 中需要截断的地方增加：
 
- ```bash
+ ```markdown
      <!--more-->
  ```
 
- * 将主题目录下配置文件里的 `scroll_to_more` 这个选项设置为 `false` 。
+ * 打开 `/themes/next/_config.yml`，修改 `scroll_to_more` 这个选项设置为 `false` 。
 
 #### 文章内的引用文字居中
 * 优化了 Markdown 默认的引用的样式
 
-```
+```markdown
 {% centerquote %}
 引用正文
 {% endcenterquote %}
@@ -302,19 +334,37 @@ hexo d
 引用正文
 {% endcenterquote %}
 
+#### 修改代码块样式
 
- #### 设定站点建立时间
+* 编辑 `/themes/next/_config.yml` ，修改 `codeblock` 配置如下
+
+```yml
+codeblock:
+  # Code Highlight theme
+  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
+  # See: https://github.com/chriskempson/tomorrow-theme
+  highlight_theme: night eighties
+  # Add copy button on codeblock
+  copy_button:
+    enable: true
+    # Show text copy result.
+    show_result: true
+    # Available values: default | flat | mac
+    style:
+```
+
+#### 设定站点建立时间
 
  * 编辑站点的 `_config.yml` ，新增字段 `since` 。
 
- ```bash
- since: 2024
- ```
+```bash
+since: 2024
+```
 
 #### 改进文章链接样式
 
 * 编辑修改文件 `themes\next\source\css\_common\components\post\post.styl`，在末尾添加如下 css 样式，：
-  
+
 ``` css
 // link style
 .post-body p a{
@@ -326,6 +376,85 @@ hexo d
     border-bottom: none;
     border-bottom: 1px solid #fc6423;
   }
+}
+```
+
+#### 给博客增加背景图
+* 在根目录的 `source` 文件夹下创建 `_data` 文件夹，新建 `styles.styl` 文件，打开新建的文件 `source/_data/styles.styl`，添加如下内容
+
+```css
+body {
+    background:url(/uploads/background.jpg);
+    background-repeat: no-repeat;   //图片无法铺满时，是否重复以及重复方式
+    background-attachment:fixed;    //图片是否跟随滚动
+    background-size: cover;         //覆盖
+    background-position:50% 50%;    //图片位置
+}
+```
+* url 中可以是图片链接，或者是图片目录。可以将图片命名为 `background.jpg`，并放入 `source/uploads` 文件夹内。
+
+#### 博客内容背景设置半透明
+* 打开上一步编辑的文件 `source/_data/styles.styl`，继续在下面增加如下内容
+
+```css
+
+//博客内容透明化
+//文章内容的透明度设置
+if (hexo-config('motion.transition.post_block')) {
+  .post-block {
+    background: rgba(255,255,255,0.9);
+    opacity: 0.9;
+    radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 40px;
+    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+  }
+  .pagination, .comments {
+    opacity: 0;
+  }
+
+  +tablet() {
+    margin: 20px;
+    padding: 10px;
+  }
+
+  +mobile() {
+    margin: 15px;
+    padding: 15px;
+  }
+}
+
+
+//侧边框的透明度设置
+.sidebar {
+  opacity: 0.9;
+}
+
+//菜单栏的透明度设置
+.header-inner {
+  background: rgba(255,255,255,0.9);
+}
+
+//搜索框（local-search）的透明度设置
+.popup {
+  opacity: 0.9;
+}
+```
+
+#### 优化行内代码块的样式
+* 打开上一步编辑的文件 `source/_data/styles.styl`，继续在下面增加如下内容
+
+```css
+// 针对Code代码标签的美化
+code {
+  padding: 2px 4px;
+  word-wrap: break-word;
+  color: #c7254e;
+  background: #f9f2f4;
+  border-radius: 3px;
+  font-size: 18px;
 }
 ```
 
@@ -356,6 +485,7 @@ hexo d
 ```
 
 * 重新生成预览修改后的效果，确认没问题后发布
+
 ```bash
 hexo g
 hexo s
@@ -415,10 +545,12 @@ git push origin source:source
 * 下载安装 node.js （[官网下载安装](https://nodejs.org/en/)）
 * 下载安装 git （[官网下载安装](https://git-scm.com/downloads)）
 * 安装 hexo 框架: 打开 cmd 运行
+
  ```bash
  npm install -g hexo-cli
 ```
 * 进行本地更新
+
 ```bash
 # 克隆仓库到本地
 git clone https://github.com/your-name/your-name.github.io.git
@@ -445,6 +577,7 @@ hexo d  # 发布最新博客内容
 ```
 
 ### 几个常用命令汇总
+
  ```bash
 hexo g
 #或 hexo generate，根据源文件生成静态网页
