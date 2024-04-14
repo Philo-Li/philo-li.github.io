@@ -394,5 +394,4 @@ hexo clean
 
 ### 参考文章
 
-[Hexo-NexT搭建个人博客（二）](https://neveryu.github.io/2016/09/30/hexo-next-two/)
 [hexo的next主题个性化教程:打造炫酷网站](https://www.jianshu.com/p/f054333ac9e6)
