@@ -10,7 +10,7 @@ Hexo 作为一个快速、简洁且高效的博客框架，简直是小白们的
 
 <!--more-->
 
-曾经我在 2018 年写过一篇 （[从零开始搭建博客简明教程](https://lulalap.com/2018/01/25/building-a-blog-from-scratch/)）,因为插件的更新，有一些细节需要改动，因此重新推出 2024 版的简明教程。
+曾经我在 2018 年写过一篇 [从零开始搭建博客简明教程](https://lulalap.com/2018/01/25/building-a-blog-from-scratch/),因为插件的更新，有一些细节需要改动，因此重新推出 2024 版的简明教程。
 
 ### 准备工作
 
@@ -31,30 +31,30 @@ Hexo 作为一个快速、简洁且高效的博客框架，简直是小白们的
 
 * 生成完 hexo 模板，安装 npm ，运行：
  ```bash
- $ npm install
+$ npm install
  ```
 
 没错，博客的主体部分到此已经完成了，来看看效果吧。运行：
-     ```bash
-     $ hexo server
-     ```
+```bash
+$ hexo server
+```
 这时候打开浏览器，输入 localhost:4000 就可以看到博客目前的样子了。小小激动一下，然后按 Ctrl + C 就可以继续下面的操作了。
 
 ### 个性化设置（初步）
 
 #### 更换主题
 
- * 下载新的主题（以[NexT 主题]( http://theme-next.iissnan.com/ )为例），在根目录下运行：
+* 下载新的主题（以[NexT 主题]( http://theme-next.iissnan.com/ )为例），在根目录下运行：
  ```bash
 $ git clone https://github.com/theme-next/hexo-theme-next themes/next
  ```
 
-* 打开根目录下的 _config.yml ，修改字段 theme 为:
+* 打开根目录下的 `_config.yml`，修改字段 `theme` 为:
  ```bash
 theme: next
  ```
 
-* 选择外观：打开 /themes/next 目录下的主题配置文件 _config.yml ， 找到 scheme 字段（可用 Ctrl + F 快捷查找）。NexT提供了三种不同的外观，可以挑选一个自己喜欢的，然后去掉其中一个的 # 号(后续主要修改的也就是这两个文件： _站点配置文件_ 和 _主题配置文件_ 。)。
+* 选择外观：打开 `/themes/next` 目录下的主题配置文件 `_config.yml` ， 找到 `scheme` 字段（可用 Ctrl + F 快捷查找）。NexT提供了三种不同的外观，可以挑选一个自己喜欢的，然后去掉其中一个的 # 号(后续主要修改的也就是这两个文件： _站点配置文件_ 和 _主题配置文件_ 。)。
  ```bash
 # Schemes
 #scheme: Muse
@@ -71,7 +71,7 @@ hexo server
 
 #### 站点配置
 
-* 使用编辑器打开根目录下的站点配置文件 _config.yml （Windows下不要使用记事本编辑，中文标题会出现乱码），修改字段 Site ， 注意冒号后面要有空格：
+* 使用编辑器打开根目录下的站点配置文件 `_config.yml` （ Windows下不要使用记事本编辑，中文标题会出现乱码），修改字段 `Site` ， 注意冒号后面要有空格：
  ```bash
  # Site
  title: 未知的世界                //博客名称
@@ -84,9 +84,9 @@ hexo server
 
 ### 设置侧边栏头像
 
-* 在 /source 中新建文件夹并命名为 uploads , 将头像图片（如： avatar.jpg ）放到该文件夹内
+* 在 `/source` 中新建文件夹并命名为 `uploads` , 将头像图片（如： avatar.jpg ）放到该文件夹内
 
-* 打开 /themes/next 目录下的主题配置文件 _config.yml ，找到字段 avatar 并修改为:
+* 打开 `/themes/next` 目录下的主题配置文件 `_config.yml` ，找到字段 `avatar` 并修改为:
 ```bash
 avatar: 
     url: /uploads/avatar.jpg
@@ -95,7 +95,7 @@ avatar:
 ### 完善博客页面
 
 #### 添加菜单
-* 在主题配置文件 _configy.yml 设置中将字段 menu 中需要添加的菜单前面的注释去掉即可。如需要添加其他菜单可按需添加（注意字段的缩进）：
+* 在主题配置文件 `_config.yml` 设置中将字段 `menu` 中需要添加的菜单前面的注释去掉即可。如需要添加其他菜单可按需添加（注意字段的缩进）：
 ```bash
 menu:
   home: / || fa fa-home
@@ -107,12 +107,12 @@ menu:
 
 #### 创建分类页面
 
-* 新建一个页面，命名为 categories ，命令如下：
+* 新建一个页面，命名为 `categories` ，命令如下：
  ```bash
  $ hexo new page categories
  ```
 
-* 编辑刚新建的页面 /source/categories/index.md ，将页面的类型设置为 categories ，主题将自动为这个页面显示所有分类（注意保留冒号后的空格）。
+* 编辑刚新建的页面 `/source/categories/index.md` ，将页面的类型设置为 `categories` ，主题将自动为这个页面显示所有分类（注意保留冒号后的空格）。
  ```bash
 	title: Categories
 	date: 2024-04-10 23:40:31
@@ -144,7 +144,7 @@ menu:
  $ hexo new page "about"
  ```
 
- * 编辑刚新建的页面，可在正文处用Markdown格式写下信息。
+ * 编辑刚新建的页面，可在正文处用 Markdown 格式写下信息。
  ```bash
 	title: About
 	date: 2024-04-10 23:41:56
@@ -154,18 +154,18 @@ menu:
 
 ### 设置侧边栏社交链接
 
-* 编辑站点的 _config.yml，找到字段 social，然后添加社交站点名称与地址即可。键值格式为 显示名称：链接地址 ，例如：
+* 编辑站点的 `_config.yml`，找到字段 `social` ，然后添加社交站点名称与地址即可。键值格式为 `显示名称：链接地址` ，例如：
  ```bash
-	# Social links
-	social:
-		GitHub: https://github.com/your-user-name || fab fa-github
-		E-Mail: mailto:yourname@gmail.com || fa fa-envelope
-		#Weibo: https://weibo.com/yourname || fab fa-weibo
-		#Google: https://plus.google.com/yourname || fab fa-google
-		Twitter: https://x.com/your-user-name || fab fa-twitter
+# Social links
+social:
+  GitHub: https://github.com/your-user-name || fab fa-github
+  E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  #Weibo: https://weibo.com/yourname || fab fa-weibo
+  #Google: https://plus.google.com/yourname || fab fa-google
+  Twitter: https://x.com/your-user-name || fab fa-twitter
  ```
 
-* 编辑主题的 _config.yml, 在social_icons字段下添加社交站点名称（注意大小写）与(图标)[http://fontawesome.io/icons/]。 enable 选项用于控制是否显示图标，你可以设置成 false 来去掉图标。例如：
+* 编辑主题的 `_config.yml`, 在 `social_icons` 字段下添加社交站点名称（注意大小写）与(图标)[http://fontawesome.io/icons/]。 enable 选项用于控制是否显示图标，你可以设置成 `false` 来去掉图标。例如：
  ```bash
  social_icons:
    enable: true
@@ -175,11 +175,11 @@ menu:
 
 ### 将博客与GitHub关联
 
- * 注册GitHub账号：如果还没有GitHub账号的，需要先注册一个
+ * 注册 GitHub 账号：如果还没有 GitHub 账号的，需要先注册一个
 
- * 在Github上创建名字为XXX.github.io的项目，XXX为自己的github用户名。
+ * 在 Github 上创建名字为 `XXX.github.io` 的项目，XXX为自己的 GitHub 用户名。
 
- * 打开本地的MyBlog文件夹项目内的_config.yml配置文件，将其中的type设置为git:
+ * 打开本地的 `MyBlog` 文件夹项目内的 `_config.yml` 配置文件，将其中的 `type` 设置为 `git` :
  ```bash
  deploy:
    type: git
@@ -205,28 +205,28 @@ hexo d
 
 #### 域名购买
 
-* 购买一个域名，推荐在 [namesilo.com](namesilo.com) 上购买，老牌的域名提供商，价格优惠服务靠谱。如果你使用我的推荐码`PhiloArt.io`，可获得优惠1美元，有效期至 2025-12-31。
+* 购买一个域名，推荐在 [namesilo.com](namesilo.com) 上购买，老牌的域名提供商，价格优惠服务靠谱。如果你使用我的推荐码 `PhiloArt.io`，还可以可获得优惠 1 美元，有效期至 2025-12-31。
 
 ### 域名解析
 
 * 域名提供商 DNS 设置
 
-* 添加4条A记录，用于指向 GitHub Pages：
+* 添加 4 条 A 记录，用于指向 GitHub Pages：
 
  > 185.199.108.153
  > 185.199.109.153
  > 185.199.110.153
  > 185.199.111.153
 
-* 添加一条 CNAME 记录，name 为 www，content 为 philo-li.github.io（指向你的 Github Pages 地址）：
+* 添加一条 `CNAME` 记录，`name` 为 `www`，`content` 为 `your-name.github.io`（指向你的 Github Pages 地址）：
 
- > CNAME—>philo-li.github.io
+ > CNAME —> philo-li.github.io
 
 * 更详细的设置请参见 [GitHub Pages Docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)
 
 * 博客目录添加 CNAME 文件
 
- 配置完域名解析后，进入博客目录，在source目录下新建一个命名为 CNAME 的文件(注意要大写，没有后缀)，用记事本打开编辑，写入购买好的域名，如：www.philoli.com
+ 配置完域名解析后，进入博客目录，在 `source` 目录下新建一个命名为 `CNAME` 的文件(注意要大写，没有后缀)，用记事本打开编辑，写入购买好的域名，如：`www.philoli.com`
 
 * 运行：
 ```bash
@@ -238,7 +238,7 @@ hexo d
 
 ### 发布新文章
 
-* 在博客根目录下执行：hexo new “我的第一篇文章”，会在 source/_posts 文件夹内生成一个.md文件。
+* 在博客根目录下执行：`hexo new “我的第一篇文章”`，会在 `source/_posts` 文件夹内生成一个 `.md` 文件。
 
 * 编辑该文件，修改起始字段为：
  ```bash
@@ -253,7 +253,7 @@ hexo d
 
 * 编写正文内容(遵循 Markdown 规则)
 
-* 本地生成静态文件，并将静态文件推送至GitHub，运行：
+* 本地生成静态文件，并将静态文件推送至 GitHub，运行：
 ```bash
 hexo g
 hexo d
@@ -268,16 +268,16 @@ hexo d
  $ npm install hexo-generator-feed --save
  ```
 
- * 在主题文件的 _config.yml 里面的末尾添加：(**_请注意在冒号后面要加一个空格，不然会发生错误！_**)
+ * 在根目录的 `_config.yml` 里面的末尾添加：(**_请注意在冒号后面要加一个空格，不然会发生错误！_**)
  ```bash
  # Extensions
  ## Plugins: http://hexo.io/plugins/
  plugins: hexo-generate-feed
  ```
 
- * 打开 next 主题文件夹里面的 _config.yml ,在在 rss: 的后面加上 /atom.xml (注意在冒号后面要加一个空格)
+ * 打开 `next` 主题文件夹里面的 `_config.yml` ,修改 `rss` (注意在冒号后面要加一个空格)
  ```bash
- rss: /atom.xml
+ rss: /atom.xml || fa fa-rss
  ```
 
 #### 首页文章截断
@@ -287,16 +287,17 @@ hexo d
      <!--more-->
  ```
 
- * 将主题目录下配置文件里的 scroll_to_more 这个选项设置为 false 。
+ * 将主题目录下配置文件里的 `scroll_to_more` 这个选项设置为 `false` 。
 
 #### 文章内的引用文字居中
-* 优化了 markdown 默认的引用的样式
+* 优化了 Markdown 默认的引用的样式
 
 ```
 {% centerquote %}
 引用正文
 {% endcenterquote %}
 ```
+
 {% centerquote %}
 引用正文
 {% endcenterquote %}
@@ -304,11 +305,75 @@ hexo d
 
  #### 设定站点建立时间
 
- * 编辑站点的 _config.yml ，新增字段 since 。
+ * 编辑站点的 `_config.yml` ，新增字段 `since` 。
 
  ```bash
- since: 2013
+ since: 2024
  ```
+
+#### 改进文章链接样式
+
+* 编辑修改文件 `themes\next\source\css\_common\components\post\post.styl`，在末尾添加如下 css 样式，：
+  
+``` css
+// link style
+.post-body p a{
+  color: #0593d3;
+  border-bottom: none;
+  border-bottom: 1px solid #0593d3;
+  &:hover {
+    color: #fc6423;
+    border-bottom: none;
+    border-bottom: 1px solid #fc6423;
+  }
+}
+```
+
+#### 给网站底部增加访问者数量
+
+* 编辑修改文件
+
+```css
+# 找到 copyright 这一标签栏，然后在标签内部添加代码
+
+<div class="copyright">
+# ......这里已经有了一些配置
+# 在这里添加新的代码
+</div>
+
+# 添加后是这样：
+<div class="copyright">
+  # ......这里已经有了一些配置
+  # 在这里添加新的代码
+  {%- if true %}
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user-md"></i>
+    </span>
+    Visitors: <span id="busuanzi_value_site_uv"></span>
+  {%- endif %}
+</div>
+```
+
+* 重新生成预览修改后的效果，确认没问题后发布
+```bash
+hexo g
+hexo s
+# 确认没问题后发布
+hexo d
+```
+
+#### 给仓库添加 README.md 文件
+
+每个项目下一般都有一个 `README.md` 文件，但是使用 hexo 部署到仓库后，项目下的 `README.md` 文件会被覆盖，所以需要设置配置文件避免覆盖。
+
+在 `Hexo` 目录下的 `source` 根目录下添加一个 `README.md` 文件，修改站点配置文件 `_config.yml`，将 `skip_render` 参数的值设置为
+
+```yml
+skip_render: README.md
+```
+保存退出即可。再次使用 `hexo d` 命令部署博客的时候就不会渲染 `README.md` 这个文件了。
+
 #### 几个常用插件
 
 - Hexo Filter MathJax：渲染数学公式
@@ -390,8 +455,3 @@ hexo s
 hexo clean
 # 清空静态网页 cache，然后 hexo d 重新生成
  ```
-
-
-### 参考文章
-
-[hexo的next主题个性化教程:打造炫酷网站](https://www.jianshu.com/p/f054333ac9e6)
