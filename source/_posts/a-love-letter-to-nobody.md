@@ -1,7 +1,7 @@
 ---
 title: 未名情话
 date: 2022-08-27 20:53:13
-tags: 闲聊
+tags: 随笔
 categories: 日常闲聊
 ---
 

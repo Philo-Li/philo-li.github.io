@@ -1,7 +1,7 @@
 ---
 title: 短诗合集（2019）
 date: 2020-01-02 20:53:13
-tags: 闲聊
+tags: 随笔
 categories: 日常闲聊
 ---
 

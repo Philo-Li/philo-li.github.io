@@ -6,15 +6,20 @@ date: 2024-04-10 23:41:56
 
 Creator of art gallery [philoart.io](https://PhiloArt.io)
 
+[The World As I See It (我的世界观)](https://www.philoli.com/the-world-as-I-see-it/)
+
 ## Artworks
 
-I post my artworks at [philoart.io/Philo](https://philoart.io/philo)
+I post my artworks at:
+[philoart.io/Philo](https://philoart.io/philo)
 
-To purchase my artworks, please DM at [twitter/X](x.com/philo2022)
+To purchase my artworks, please DM at:
+[twitter/X](x.com/philo2022)
 
-Or contact: philo.li.official@gmail.com
+or Email: philo.li.official@gmail.com
 
-购买实体绘画或摄影作品可私信 [twitter/X](x.com/philo2022) 或联系 philo.li.official@gmail.com
+购买实体绘画或摄影作品可私信 [twitter/X](x.com/philo2022) 
+或联系 philo.li.official@gmail.com
 
 ## Other Links:
 

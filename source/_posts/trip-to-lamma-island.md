@@ -2,7 +2,8 @@
 layout: blog
 title: 南丫岛之行
 date: 2024-09-19 11:19:46
-tags:
+tags: 随笔
+categories: 日常闲聊
 ---
 
 原本计划之外的一段旅行，想不到成就了一场难忘的回忆。

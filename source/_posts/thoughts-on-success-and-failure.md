@@ -2,7 +2,7 @@
 layout: blog
 title: 成功与失败随想
 date: 2024-09-18 15:02:52
-tags: 闲聊
+tags: 随笔
 categories: 日常闲聊
 ---
 
