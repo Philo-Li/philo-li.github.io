@@ -1,13 +1,9 @@
 ---
-// Placeholder data — will be replaced with content collection query later
-const artworks = [
-  { title: 'Artwork 1', color: '#2d3436' },
-  { title: 'Artwork 2', color: '#6c5ce7' },
-  { title: 'Artwork 3', color: '#00b894' },
-  { title: 'Artwork 4', color: '#fdcb6e' },
-  { title: 'Artwork 5', color: '#74b9ff' },
-  { title: 'Artwork 6', color: '#e17055' },
-];
+import { getCollection } from 'astro:content';
+
+const artworks = (await getCollection('art'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 8);
 ---
 
 <section class="artwork-strip">
@@ -17,8 +13,9 @@ const artworks = [
   </div>
   <div class="artwork-strip__scroll">
     {artworks.map(art => (
-      <a href="/art" class="artwork-strip__item" style={`background: ${art.color}`}>
-        <span class="artwork-strip__label">{art.title}</span>
+      <a href="/art" class="artwork-strip__item">
+        <img src={art.data.image} alt={art.data.title} loading="lazy" />
+        <span class="artwork-strip__label">{art.data.title}</span>
       </a>
     ))}
   </div>
@@ -74,6 +71,11 @@ const artworks = [
   }
   .artwork-strip__item:hover {
     transform: scale(1.02);
+  }
+  .artwork-strip__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .artwork-strip__label {
     position: absolute;
