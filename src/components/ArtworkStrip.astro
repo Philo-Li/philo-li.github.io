@@ -1,0 +1,91 @@
+---
+// Placeholder data — will be replaced with content collection query later
+const artworks = [
+  { title: 'Artwork 1', color: '#2d3436' },
+  { title: 'Artwork 2', color: '#6c5ce7' },
+  { title: 'Artwork 3', color: '#00b894' },
+  { title: 'Artwork 4', color: '#fdcb6e' },
+  { title: 'Artwork 5', color: '#74b9ff' },
+  { title: 'Artwork 6', color: '#e17055' },
+];
+---
+
+<section class="artwork-strip">
+  <div class="artwork-strip__header">
+    <h2 class="artwork-strip__title">Recent Artworks</h2>
+    <a href="/art" class="artwork-strip__link">View all →</a>
+  </div>
+  <div class="artwork-strip__scroll">
+    {artworks.map(art => (
+      <a href="/art" class="artwork-strip__item" style={`background: ${art.color}`}>
+        <span class="artwork-strip__label">{art.title}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .artwork-strip {
+    padding: var(--space-lg) var(--space-md);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .artwork-strip__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-md);
+  }
+  .artwork-strip__title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+  .artwork-strip__link {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+  }
+  .artwork-strip__link:hover {
+    color: var(--color-white);
+  }
+  .artwork-strip__scroll {
+    display: flex;
+    gap: var(--space-sm);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: var(--space-xs);
+  }
+  .artwork-strip__scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .artwork-strip__item {
+    flex: 0 0 200px;
+    height: 260px;
+    border-radius: 8px;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  .artwork-strip__item:hover {
+    transform: scale(1.02);
+  }
+  .artwork-strip__label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  @media (max-width: 768px) {
+    .artwork-strip__item {
+      flex: 0 0 160px;
+      height: 210px;
+    }
+  }
+</style>
