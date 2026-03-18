@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SocialLinks from '../../components/SocialLinks.astro';
+---
+
+<BaseLayout title="About — Philo Li" description="About Philo Li — artist, writer, and creator.">
+  <main class="about-page">
+    <div class="about-page__hero">
+      <img src="/images/avatar.jpg" alt="Philo Li" class="about-page__avatar" />
+      <h1 class="about-page__name">Philo Li</h1>
+      <p class="about-page__tagline">Artist · Writer · Creator</p>
+    </div>
+
+    <div class="about-page__bio">
+      <p>
+        I paint, photograph, write, and build things. I'm the creator of
+        <a href="https://dopamind.app">Dopamind</a> (an AI ADHD Coach) and
+        <a href="https://philoart.io">PhiloArt</a> (a digital art gallery).
+      </p>
+      <p>
+        I write about art, philosophy, investing, and the human experience in my newsletters
+        <a href="https://shuo.philoli.com">Philo 说会儿</a> (Chinese) and
+        <a href="https://reflections.philoli.com">Reflections</a> (English).
+      </p>
+    </div>
+
+    <div class="about-page__links">
+      <h2 class="about-page__section-title">Find me elsewhere</h2>
+      <SocialLinks />
+      <div class="about-page__extra-links">
+        <a href="https://medium.com/@philo2018" target="_blank" rel="noopener noreferrer">Medium</a>
+        <a href="mailto:philo.li.official@gmail.com">Email</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .about-page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: calc(var(--nav-height) + var(--space-xl)) var(--space-md) var(--space-xl);
+  }
+  .about-page__hero {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+  .about-page__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--space-md);
+  }
+  .about-page__name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+  .about-page__tagline {
+    margin-top: var(--space-xs);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+  .about-page__bio {
+    margin-bottom: var(--space-lg);
+  }
+  .about-page__bio p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-sm);
+  }
+  .about-page__bio a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .about-page__section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-bottom: var(--space-md);
+  }
+  .about-page__extra-links {
+    margin-top: var(--space-sm);
+    display: flex;
+    gap: var(--space-md);
+  }
+  .about-page__extra-links a {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+  .about-page__extra-links a:hover {
+    color: var(--color-white);
+  }
+</style>
