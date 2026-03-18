@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Gallery from '../../components/Gallery.tsx';
+import { getCollection } from 'astro:content';
+import '../../styles/gallery.css';
+
+const artworks = (await getCollection('art'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map(a => ({
+    title: a.data.title,
+    type: a.data.type,
+    image: a.data.image,
+    description: a.data.description,
+  }));
+---
+
+<BaseLayout title="Art — Philo Li" description="Photography and painting by Philo Li.">
+  <main class="art-page">
+    <h1 class="art-page__title">Art</h1>
+    <Gallery client:load artworks={artworks} />
+  </main>
+</BaseLayout>
