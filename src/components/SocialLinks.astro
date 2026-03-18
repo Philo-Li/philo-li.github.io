@@ -1,0 +1,46 @@
+---
+interface Props {
+  size?: 'sm' | 'md';
+}
+const { size = 'md' } = Astro.props;
+
+const links = [
+  { href: 'https://github.com/philo-li', label: 'GitHub' },
+  { href: 'https://x.com/philo2022', label: 'X' },
+  { href: 'https://instagram.com/philo1024', label: 'Photography' },
+  { href: 'https://instagram.com/philoart2020', label: 'Art' },
+  { href: 'https://youtube.com/c/PhiloArt', label: 'YouTube' },
+];
+---
+
+<div class:list={['social-links', `social-links--${size}`]}>
+  {links.map(link => (
+    <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label} class="social-links__item">
+      {link.label}
+    </a>
+  ))}
+</div>
+
+<style>
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .social-links__item {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+  .social-links__item:hover {
+    color: var(--color-white);
+  }
+  .social-links--sm {
+    gap: 1rem;
+  }
+  .social-links--sm .social-links__item {
+    font-size: 0.7rem;
+  }
+</style>
