@@ -1,0 +1,46 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  url: string;
+}
+
+const { name, description, url } = Astro.props;
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer" class="project-card">
+  <h3 class="project-card__name">{name}</h3>
+  <p class="project-card__desc">{description}</p>
+  <span class="project-card__link">{new URL(url).hostname} →</span>
+</a>
+
+<style>
+  .project-card {
+    display: block;
+    padding: var(--space-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .project-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+  .project-card__name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: var(--space-xs);
+  }
+  .project-card__desc {
+    font-size: 0.85rem;
+    color: var(--color-text-subtle);
+    line-height: 1.5;
+    margin-bottom: var(--space-sm);
+  }
+  .project-card__link {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+  }
+</style>
