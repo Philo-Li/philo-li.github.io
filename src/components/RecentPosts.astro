@@ -1,0 +1,82 @@
+---
+// Placeholder data — will be replaced with content collection query later
+const posts = [
+  { title: '自由审美论：第十五章', date: '2026-03', slug: '#' },
+  { title: 'How I Built My Newsletter', date: '2026-02', slug: '#' },
+  { title: '成功与失败的哲学', date: '2026-01', slug: '#' },
+  { title: 'The World as I See It', date: '2025-12', slug: '#' },
+  { title: 'Trip to Lamma Island', date: '2025-11', slug: '#' },
+];
+---
+
+<section class="recent-posts">
+  <div class="recent-posts__header">
+    <h2 class="recent-posts__title">Recent Writing</h2>
+    <a href="/blog" class="recent-posts__link">View all →</a>
+  </div>
+  <ul class="recent-posts__list">
+    {posts.map(post => (
+      <li class="recent-posts__item">
+        <a href={`/blog/${post.slug}`} class="recent-posts__item-link">
+          <span class="recent-posts__item-title">{post.title}</span>
+          <span class="recent-posts__item-date">{post.date}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .recent-posts {
+    padding: var(--space-lg) var(--space-md);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .recent-posts__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-md);
+  }
+  .recent-posts__title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+  .recent-posts__link {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+  }
+  .recent-posts__link:hover {
+    color: var(--color-white);
+  }
+  .recent-posts__list {
+    list-style: none;
+  }
+  .recent-posts__item {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .recent-posts__item-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) 0;
+    transition: color 0.2s ease;
+    color: var(--color-text-subtle);
+  }
+  .recent-posts__item-link:hover {
+    color: var(--color-white);
+  }
+  .recent-posts__item-title {
+    font-size: 1rem;
+  }
+  .recent-posts__item-date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    margin-left: var(--space-md);
+  }
+</style>
